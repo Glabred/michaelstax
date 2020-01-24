@@ -2,7 +2,7 @@ var ctx = document.getElementById('myChart');
 var geo = document.getElementById('geo');
 
 var a = 3;
-var b = 6;
+var b = 7;
 var i;
 var data = [];
 for (i = 0; i < 100; i++) {
