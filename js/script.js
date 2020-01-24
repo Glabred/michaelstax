@@ -61,7 +61,7 @@ var geoChart = new Chart(geo, {
         {
             borderDash: [5,5],
             fill: false,
-            label: '-2 sd',
+            label: '-1 sd',
             backgroundColor: "#FF0000",
             borderColor: "#FF0000",
             data:geodata1,
@@ -70,7 +70,7 @@ var geoChart = new Chart(geo, {
             borderDash: [5,5],
             borderColor: "#008000",
             fill: false,
-            label: '+2 sd ',
+            label: '+1 sd ',
             backgroundColor: "#008000",
             data:geodata2,
         }]},
@@ -111,6 +111,7 @@ for (i = 0; i < geodata2.length; i++) {
         break
     }
 }
+document.getElementById("start").innerHTML = "There has so far been "+ a.toString()+" condom breaks out of "+ (b-1+a).toString()+" sexual encounters."
 document.getElementById("likely").innerHTML = "Most likely the condom will break with a probablity of "+mu.toFixed(2).toString()+" but due to sample size issues there is a 68% chance that the probabilty of the condom breaking is "+((mu-1*sd)).toFixed(2).toString()+"-"+((mu+1*sd)).toFixed(2).toString()+" or an expected price of $" +(50*(mu-1*sd)).toFixed(2).toString()+"-$"+(50*(mu+1*sd)).toFixed(2).toString()+" per sexual encounter (We are 95% sure that the condom will break with probability "+((mu-2*sd)).toFixed(2).toString()+"-"+((mu+2*sd)).toFixed(2).toString()+" or $"+(50*(mu-2*sd)).toFixed(2).toString()+"-$"+(50*(mu+2*sd)).toFixed(2).toString()+" per sexual encounter). The expected price is $" + (50*(mu)).toFixed(2).toString()+".";
-document.getElementById("geometric").innerHTML = "As shown in the graph, Michael, there is less than a 10% chance that Michael does not break the condom in the next " + lowest.toString() + " times. The most optimistic estimates(+2 sd) is "+lowest1.toString()+ " times and the least optimistic(-2 sd) is " + lowest2.toString() + " times.";
+document.getElementById("geometric").innerHTML = "As shown in the graph, Michael, there is less than a 10% chance that Michael does not break the condom in the next " + lowest.toString() + " times. The more optimistic estimates(+1 sd) is "+lowest1.toString()+ " times and the lesser optimistic(-1 sd) is " + lowest2.toString() + " times.";
 
