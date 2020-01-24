@@ -19,11 +19,11 @@ var geodata = []
 var geodata1 = []
 var geodata2 = []
 
-for (i = 1; i <= 10; i++) {
+for (i = 1; i <= 30; i++) {
     num = i
-    geodata.push({x: num,y: geometric(num,mu).toFixed(2)})
-    geodata1.push({x: num,y: geometric(num,mu-2*sd).toFixed(2)})
-    geodata2.push({x: num,y: geometric(num,mu+2*sd).toFixed(2)})
+    geodata.push({x: num,y: jStat.binomial.pdf(0,num,mu).toFixed(2)})
+    geodata1.push({x: num,y: jStat.binomial.pdf(0,num,mu-1*sd).toFixed(2)})
+    geodata2.push({x: num,y: jStat.binomial.pdf(0,num,mu+1*sd).toFixed(2)})
 }
 var myChart = new Chart(ctx, {
     type: 'line',
@@ -92,22 +92,22 @@ var geoChart = new Chart(geo, {
 var lowest = 1;
 var lowest1 = 1;
 var lowest2 = 1;
+
 for (i = 0; i < geodata.length; i++) {
     if(geodata[i].y<=0.1){
-        lowest=i+1
+        lowest=i+1;
         break
     }
 }
 for (i = 0; i < geodata1.length; i++) {
     if(geodata1[i].y<=0.1){
-        lowest1=i+1
+        lowest1=i+1;
         break
     }
-
 }
 for (i = 0; i < geodata2.length; i++) {
     if(geodata2[i].y<=0.1){
-        lowest2=i+1
+        lowest2=i+1;
         break
     }
 }
